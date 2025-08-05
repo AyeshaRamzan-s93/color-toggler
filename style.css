@@ -1,0 +1,44 @@
+
+body {
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    transition: background-color 0.5s;
+}
+#switch {
+    display: none;
+}
+label {
+    display: block;
+    width: 80px;
+    height: 40px;
+    background: black;
+    border-radius: 50px;
+    /* relative coz we can place knob after inside it precisely  */
+    position: relative;   
+    cursor: pointer;
+}
+label::after {
+    /* creates circular knob inside switch */
+    position: absolute;
+    content: "";
+    width: 30px;
+    height: 30px;
+    background: white;
+    border-radius: 50%;
+    top: 5px;
+    left: 5px;
+    transition: 0.4s;  
+}
+
+#switch:checked + label {
+    /* When checkbox is checked change the label's background to white */
+    background: white;
+} 
+#switch:checked + label::after {
+    /* Change the knob color to black for contrast */
+    background: black;
+    transform: translateX(40px);
+}
